@@ -2,24 +2,25 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yomi-Mail | بريد مؤقت احترافي</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Yomi-Mail | Hotmail Edition</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* --- قسم التنسيق (CSS) --- */
+        /* --- قسم التنسيق (CSS) - تصميم طبق الأصل مع إضافات --- */
         :root {
-            --primary-grad: linear-gradient(135deg, #6366f1, #10b981);
-            --bg-dark: #090919;
+            --primary-gradient: linear-gradient(135deg, #0078d4, #00bcf2); /* ألوان هوتميل زرقاء احترافية */
+            --bg-color: #0f172a;
             --card-glass: rgba(30, 41, 59, 0.7);
-            --text-main: #ffffff;
-            --accent-cyan: #22d3ee;
+            --text-color: #ffffff;
+            --accent-color: #00bcf2;
+            --sub-text: #94a3b8;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background: radial-gradient(circle at top, #1e293b, #090919);
-            color: var(--text-main);
+            background: radial-gradient(circle at top, #1e293b, #0f172a);
+            color: var(--text-color);
             font-family: 'Tajawal', sans-serif;
             display: flex; justify-content: center;
             padding: 20px; min-height: 100vh;
@@ -27,87 +28,126 @@
 
         .container { width: 100%; max-width: 450px; text-align: center; }
 
-        /* مساحات الإعلانات */
+        /* مساحات الإعلانات (كما في الصورة) */
         .ad-placeholder {
             background: rgba(255, 255, 255, 0.03);
             border: 1px dashed rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            padding: 15px; margin: 15px 0;
+            padding: 20px; margin: 15px 0;
             color: rgba(255, 255, 255, 0.2); font-size: 11px;
         }
 
-        header { margin-bottom: 25px; }
-        .logo-flex { display: flex; align-items: center; justify-content: center; gap: 12px; }
+        /* الهيدر والعناوين */
+        header { margin-bottom: 30px; }
+        .logo-area { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 5px; }
+        .logo-emoji { font-size: 35px; }
         header h1 { font-size: 32px; color: #fff; }
+        header p { color: var(--sub-text); font-size: 15px; }
 
-        /* الكرت الرئيسي */
-        .main-card {
+        /* الكرت الرئيسي الزجاجي (تصميم طبق الأصل) */
+        .glass-card {
             background: var(--card-glass);
             backdrop-filter: blur(15px);
             border-radius: 28px;
             padding: 25px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             margin-bottom: 25px;
         }
 
-        .email-display {
+        .status-wrapper { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-size: 13px; color: var(--sub-text); }
+        .status-label { display: flex; align-items: center; gap: 5px; }
+        .pulse-dot { height: 10px; width: 10px; background: #10b981; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #10b981; animation: pulse 1.5s infinite; }
+
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
+
+        /* حقل الإيميل (تصميم طبق الأصل) */
+        .email-field {
             background: #020617; padding: 18px; border-radius: 18px;
             margin-bottom: 20px; border: 1px solid rgba(99, 102, 241, 0.3);
         }
-
         #emailAddr {
-            background: transparent; border: none; color: var(--accent-cyan);
+            background: transparent; border: none; color: var(--accent-color);
             width: 100%; text-align: center; font-size: 18px; font-weight: bold; outline: none;
         }
 
-        .btn-large {
-            background: var(--primary-grad);
+        /* الأزرار الستة الملونة (تصميم طبق الأصل مع تدرج للإنشاء) */
+        .main-btn {
+            background: var(--primary-gradient);
             width: 100%; padding: 16px; border-radius: 16px; border: none;
             color: white; font-weight: bold; font-size: 16px; margin-bottom: 15px;
             cursor: pointer; transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
         }
+        .main-btn:active { transform: scale(0.97); }
 
-        .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
+        .button-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .u-btn {
             padding: 12px; border-radius: 12px; border: none; color: white;
-            font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+            font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px;
         }
-
         .c-blue { background: #3b82f6; }
         .c-green { background: #10b981; }
         .c-orange { background: #f59e0b; }
         .c-red { background: #ef4444; }
+        .u-btn:active { transform: scale(0.95); }
 
-        /* العداد التنازلي */
-        .timer-container {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px; padding: 10px; margin-top: 20px;
-            position: relative; overflow: hidden;
+        /* مفتاح التحديث التلقائي (طبق الأصل) */
+        .refresh-toggle { display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--sub-text); font-size: 13px; margin-top: 20px; }
+        .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #334155; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #22d3ee; }
+        input:checked + .slider:before { transform: translateX(20px); }
+
+        /* كرت صندوق الوارد (تصميم طبق الأصل المحدث) */
+        .inbox-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            padding: 25px;
+            margin-top: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .inbox-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .inbox-header h2 { font-size: 18px; }
+        #msgCountBadge { background: #3b82f6; color: white; padding: 2px 10px; border-radius: 10px; font-size: 13px; }
 
-        .timer-bar {
-            position: absolute; top: 0; left: 0; height: 100%; background: rgba(34, 211, 238, 0.15);
+        /* شريط العداد التلقائي (جديد ومحسن كما في Atoms) */
+        .timer-progress {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px; position: relative; padding: 8px;
+            margin-bottom: 20px; overflow: hidden; text-align: center;
+        }
+        .p-fill {
+            position: absolute; top: 0; left: 0; height: 100%;
+            background: rgba(34, 211, 238, 0.2);
             width: 0%; transition: width 1s linear;
         }
+        .t-display { position: relative; z-index: 2; font-size: 12px; color: var(--accent-color); }
 
-        .timer-txt { position: relative; z-index: 2; font-size: 12px; color: var(--accent-cyan); }
+        /* الرسائل الواردة */
+        .messages-list { min-height: 150px; text-align: center; color: var(--sub-text); }
+        .mailbox-emoji { font-size: 40px; display: block; margin-bottom: 10px; }
+        .wait-txt { font-size: 14px; }
+        .sub-wait { font-size: 12px; margin-top: 5px; }
 
-        /* مربعات المميزات */
+        /* مربعات المميزات المدمجة (نطاق Hotmail الجديد) */
         .features-grid { margin-top: 30px; text-align: right; }
-        .feature-item {
+        .feature-card {
             background: var(--card-glass); border-radius: 20px;
             padding: 20px; margin-bottom: 15px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             display: flex; align-items: center; gap: 15px;
         }
+        .f-icon { font-size: 26px; background: rgba(0, 120, 212, 0.1); padding: 10px; border-radius: 12px; }
+        .feature-card h3 { font-size: 17px; margin: 0 0 5px 0; color: #fff; }
+        .feature-card p { font-size: 12px; color: var(--sub-text); line-height: 1.6; }
 
-        .f-icon { font-size: 26px; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 12px; }
-        .feature-item h3 { font-size: 17px; margin-bottom: 4px; }
-        .feature-item p { font-size: 13px; color: #94a3b8; }
-
-        footer { margin-top: 40px; color: #475569; font-size: 11px; padding-bottom: 30px; }
+        /* تذييل الصفحة (طبق الأصل) */
+        footer { margin-top: 40px; color: #475569; font-size: 12px; padding-bottom: 30px; }
+        .author-tag { color: #818cf8; }
     </style>
 </head>
 <body>
@@ -116,103 +156,152 @@
         <div class="ad-placeholder">مساحة إعلانية - Google AdSense</div>
 
         <header>
-            <div class="logo-flex">
-                <span>📩</span>
-                <h1>بريد مؤقت</h1>
+            <div class="logo-area">
+                <span class="logo-emoji">📩</span>
+                <h1>Yomi Mail</h1>
             </div>
-            <p>بواسطة Rayan Dahbi</p>
+            <p>بريد مؤقت لنطاق Hotmail حقيقي - بواسطة Rayan</p>
         </header>
 
-        <div class="main-card">
-            <div class="email-display">
+        <div class="glass-card main-action-card">
+            <div class="status-wrapper">
+                <span class="status-label"><span class="pulse-dot"></span> نشط الآن</span>
+                <span>Yomi Mail <span class="author-tag">Rayan</span></span>
+            </div>
+
+            <div class="email-field">
                 <input type="text" id="emailAddr" readonly value="جاري التحميل...">
             </div>
 
-            <button onclick="generateNew()" class="btn-large">✨ إنشاء بريد جديد</button>
+            <button onclick="generateNew()" class="main-btn">✨ إنشاء بريد Hotmail جديد</button>
 
-            <div class="btn-grid">
+            <div class="button-grid">
                 <button onclick="copyEmail()" class="u-btn c-blue">📋 نسخ</button>
                 <button onclick="refreshManual()" class="u-btn c-green">🔄 تحديث</button>
                 <button onclick="generateNew()" class="u-btn c-orange">🔀 تغيير</button>
                 <button onclick="deleteEmail()" class="u-btn c-red">🗑️ حذف</button>
             </div>
 
-            <div class="timer-container">
-                <div id="pBar" class="timer-bar"></div>
-                <div class="timer-txt" id="tTxt">تحديث تلقائي بعد 10 ثوانٍ</div>
+            <div class="refresh-toggle">
+                تحديث تلقائي كل 10 ثانية
+                <label class="switch">
+                    <input type="checkbox" id="autoUpdateToggle" checked>
+                    <span class="slider"></span>
+                </label>
             </div>
         </div>
 
         <div class="ad-placeholder">مساحة إعلانية - Google AdSense</div>
 
-        <div class="features-grid">
-            <div class="feature-item">
-                <div class="f-icon">⚡</div>
-                <div>
-                    <h3>سريع وفوري</h3>
-                    <p>احصل على بريد إلكتروني مؤقت في ثوانٍ معدودة.</p>
-                </div>
+        <div class="inbox-card glass-card">
+            <div class="inbox-header">
+                <h2>📥 الرسائل الواردة</h2>
+                <span id="msgCountBadge">0 رسائل</span>
             </div>
 
-            <div class="feature-item">
+            <div class="timer-progress">
+                <div id="progressFill" class="p-fill"></div>
+                <div class="t-display" id="timerDisplay">التحديث التلقائي بعد 10 ثانية</div>
+            </div>
+
+            <div id="messagesList" class="messages-list">
+                <div class="mailbox-empty-state">
+                    <span class="mailbox-emoji">📬</span>
+                    <p class="wait-txt">لا توجد رسائل بعد</p>
+                    <p class="sub-wait">سيتم عرض الرسائل هنا فور وصولها</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-placeholder">مساحة إعلانية - Google AdSense</div>
+
+        <div class="features-grid feature-cards-list">
+            <div class="feature-card">
                 <div class="f-icon">🔒</div>
                 <div>
                     <h3>آمن وخاص</h3>
-                    <p>نحمي خصوصيتك من الرسائل المزعجة والمخربة.</p>
+                    <p>حماية كاملة لخصوصيتك من الرسائل المزعجة والبريد غير المرغوب.</p>
                 </div>
             </div>
-
-            <div class="feature-item">
-                <div class="f-icon">🌍</div>
+            <div class="feature-card">
+                <div class="f-icon">⚡</div>
                 <div>
-                    <h3>مجاني بالكامل</h3>
-                    <p>استمتع بكافة مميزات الخدمة مجاناً للأبد.</p>
+                    <h3>سريع وفوري</h3>
+                    <p>احصل على بريدك المؤقت في أقل من ثانية واحدة، فوري وبدون انتظار.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="f-icon">Microsoft</div>
+                <div>
+                    <h3>نطاق Hotmail</h3>
+                    <p>استمتع بعنوان بريد مؤقت يبدو كحساب هوتميل حقيقي للشروحات.</p>
                 </div>
             </div>
         </div>
 
-        <div class="ad-placeholder">مساحة إعلانية - Google AdSense</div>
-
         <footer>
-            <p>© 2026 بريد مؤقت | جميع الحقوق محفوظة</p>
+            <p>© 2026 بريد مؤقت - جميع الحقوق محفوظة لـ Rayan</p>
         </footer>
     </div>
 
     <script>
-        /* --- قسم البرمجة (JavaScript) --- */
+        /* --- قسم البرمجة (JavaScript) - العداد الذكي وتوليد Hotmail --- */
         let timeLeft = 10;
-        let user = Math.random().toString(36).substring(2, 10);
+        let user = "";
+        const domain = "hotmail.com"; // تغيير النطاق كما طلب ريان
+        let timerInterval;
 
         function updateEmailUI() {
-            document.getElementById('emailAddr').value = `${user}@1secmail.com`;
-            timeLeft = 10;
-        }
-
-        setInterval(() => {
-            if(timeLeft > 0) {
-                timeLeft--;
-                document.getElementById('tTxt').innerText = `تحديث تلقائي بعد ${timeLeft} ثوانٍ`;
-                document.getElementById('pBar').style.width = `${((10-timeLeft)/10)*100}%`;
-            } else {
-                timeLeft = 10;
-                // هنا يمكن إضافة كود جلب الرسائل
-            }
-        }, 1000);
-
-        function copyEmail() {
-            const input = document.getElementById('emailAddr');
-            input.select();
-            document.execCommand('copy');
-            alert("تم نسخ البريد بنجاح! ✅");
-        }
-
-        function generateNew() {
             user = Math.random().toString(36).substring(2, 10);
-            updateEmailUI();
+            document.getElementById('emailAddr').value = `${user}@${domain}`;
+            resetTimer();
         }
 
-        function deleteEmail() { if(confirm("هل تريد حذف البريد؟")) generateNew(); }
-        function refreshManual() { timeLeft = 10; alert("تم تحديث الصندوق 🔄"); }
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timeLeft = 10;
+            updateUI();
+            if (document.getElementById('autoUpdateToggle').checked) {
+                startTimer();
+            }
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    updateUI();
+                } else {
+                    timeLeft = 10;
+                    updateUI();
+                    // هنا يمكن إضافة كود فحص الرسائل في المستقبل
+                    resetTimer();
+                }
+            }, 1000);
+        }
+
+        function updateUI() {
+            document.getElementById('timerDisplay').innerText = `التحديث التلقائي بعد ${timeLeft} ثانية`;
+            const fill = document.getElementById('progressFill');
+            const percent = ((10 - timeLeft) / 10) * 100;
+            fill.style.width = percent + "%";
+        }
+
+        // أزرار التحكم
+        function copyEmail() {
+            const el = document.getElementById('emailAddr');
+            el.select();
+            document.execCommand('copy');
+            alert("تم نسخ بريد Hotmail! ✅");
+        }
+        function generateNew() { generateEmailUI(); }
+        function deleteEmail() { if(confirm("حذف؟")) generateEmailUI(); }
+        function refreshManual() { resetTimer(); }
+
+        // التحكم في مفتاح التبديل
+        document.getElementById('autoUpdateToggle').addEventListener('change', function(e) {
+            if (e.target.checked) { resetTimer(); } else { clearInterval(timerInterval); updateUI(); }
+        });
 
         window.onload = updateEmailUI;
     </script>
