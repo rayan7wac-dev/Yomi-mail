@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yomi-Mail | بريد مؤقت احترافي</title>
+    <title>بريد مؤقت - حماية خصوصيتك</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -11,43 +11,67 @@
     <div class="container">
         <header>
             <div class="logo-area">
-                <span class="icon">✉️</span>
+                <span class="logo-emoji">✉️</span>
                 <h1>بريد مؤقت</h1>
             </div>
-            <p>خدمة سريعة وآمنة من تطوير Rayan</p>
+            <p>بريد إلكتروني مؤقت وسريع لحماية خصوصيتك</p>
         </header>
 
-        <section class="glass-card">
-            <div class="timer-display">
-                <span class="timer-label">صلاحية البريد:</span>
-                <span id="countdown">60:00</span>
+        <div class="ad-space">مساحة إعلانية - Google AdSense</div>
+
+        <div class="main-card glass-morph">
+            <div class="status-bar">
+                <span id="statusText">...جاري التحميل</span>
+                <span class="status-dot"></span>
+            </div>
+            
+            <div class="email-display">
+                <input type="text" id="emailAddr" readonly value="dwsb40ir@1secmail.com">
             </div>
 
-            <div class="email-box">
-                <input type="text" id="emailAddr" readonly value="جاري التحميل...">
-            </div>
+            <button onclick="generateNew()" class="btn-primary create-btn">✨ إنشاء بريد</button>
 
             <div class="button-grid">
-                <button onclick="copyEmail()" class="btn btn-blue">📋 نسخ</button>
-                <button onclick="refreshManual()" class="btn btn-green">🔄 تحديث</button>
-                <button onclick="generateNew()" class="btn btn-orange">🔀 تغيير</button>
-                <button onclick="deleteEmail()" class="btn btn-red">🗑️ حذف</button>
+                <button onclick="copyEmail()" class="btn-ui copy">📋 نسخ</button>
+                <button onclick="refreshManual()" class="btn-ui refresh">🔄 تحديث</button>
+                <button onclick="deleteEmail()" class="btn-ui delete">🗑️ حذف</button>
+                <button onclick="generateNew()" class="btn-ui change">🔀 تغيير</button>
             </div>
-        </section>
+            
+            <div class="toggle-control">
+                تحديث تلقائي كل 10 ثانية
+                <label class="switch">
+                    <input type="checkbox" id="autoUpdateToggle" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
 
-        <section class="glass-card inbox-section">
-            <div class="inbox-header">
+        <div class="messages-card glass-morph">
+            <div class="messages-header">
                 <h2>📥 الرسائل الواردة</h2>
-                <span id="msgCount" class="badge">0</span>
+                <span id="msgCountBadge" class="msg-badge">0 رسائل</span>
             </div>
-            <div id="messagesList" class="messages-container">
-                <p class="waiting">بانتظار الرسائل... ✨</p>
+            
+            <div class="countdown-timer">
+                <div id="progressFill" class="progress-fill"></div>
+                <div id="timerDisplay" class="timer-text">التحديث التلقائي بعد 10 ثانية</div>
             </div>
-        </section>
+
+            <div id="messagesList" class="messages-list">
+                <div class="empty-state">
+                    <span class="mailbox-icon">📬</span>
+                    <p>لا توجد رسائل بعد</p>
+                    <p class="sub-text">سيتم عرض الرسائل هنا فور وصولها</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-space ad-bottom">مساحة إعلانية - Google AdSense</div>
 
         <footer>
-            <p>🛡️ تطبيق آمن 100% ومحمي</p>
-            <p>© 2026 Yomi-Mail</p>
+            <p>© 2026 بريد مؤقت - جميع الحقوق محفوظة لـ Rayan</p>
+            <p class="footer-note">البريد المؤقت يُحذف تلقائياً بعد فترة قصيرة لحماية خصوصيتك</p>
         </footer>
     </div>
     <script src="script.js"></script>
