@@ -1,13 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yomi-Mail | بريد مؤقت احترافي</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div class="ad-space">مساحة إعلانية - AdSense</div>
+
+        <header>
+            <div class="header-main">
+                <span class="logo-icon">✉️</span>
+                <h1>بريد مؤقت</h1>
+            </div>
+            <p>بريد إلكتروني مؤقت وسريع لحماية خصوصيتك</p>
+        </header>
+
         <div class="main-card">
-            <div class="timer-bar"><div id="progress"></div></div>
-            <div class="email-section">
+            <div class="status-bar">
+                <span class="dot"></span> نشط
+            </div>
+            
+            <div class="timer-line">
+                <div id="progress"></div>
+            </div>
+
+            <div class="email-box">
                 <input type="text" id="emailAddr" readonly value="جاري التحميل...">
             </div>
             
             <div class="button-grid">
-                <button onclick="copyEmail()" class="btn btn-copy">📋 نسخ</button>
-                <button onclick="refreshManual()" class="btn btn-refresh">🔄 تحديث</button>
-                <button onclick="generateNew()" class="btn btn-change">🔀 تغيير</button>
-                <button onclick="deleteEmail()" class="btn btn-delete">🗑️ حذف</button>
+                <button type="button" onclick="copyEmail()" class="btn btn-copy">📋 نسخ</button>
+                <button type="button" onclick="refreshManual()" class="btn btn-refresh">🔄 تحديث</button>
+                <button type="button" onclick="generateNew()" class="btn btn-change">🔀 تغيير</button>
+                <button type="button" onclick="deleteEmail()" class="btn btn-delete">🗑️ حذف</button>
+            </div>
+            
+            <div class="auto-refresh-info">
+                <span>تحديث تلقائي كل 10 ثوانٍ</span>
+                <label class="switch">
+                    <input type="checkbox" checked disabled>
+                    <span class="slider"></span>
+                </label>
             </div>
         </div>
+
+        <div class="inbox-section">
+            <div class="inbox-header">
+                <span id="msgCount" class="msg-count">0 رسائل</span>
+                <h2>📥 الرسائل الواردة</h2>
+            </div>
+            <div id="messagesList" class="messages-container">
+                <div class="empty-state">
+                    <span class="mailbox-icon">📬</span>
+                    <p>لا توجد رسائل بعد.. سيتم عرض الرسائل هنا فور وصولها</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-list">
+            <div class="f-card">
+                <span class="f-icon">⚡</span>
+                <h3>سريع وفوري</h3>
+                <p>احصل على بريد إلكتروني مؤقت في ثوانٍ معدودة دون تسجيل</p>
+            </div>
+            <div class="f-card">
+                <span class="f-icon">🔒</span>
+                <h3>آمن وخاص</h3>
+                <p>حماية كاملة لخصوصيتك من الرسائل المزعجة والبريد غير المرغوب</p>
+            </div>
+            <div class="f-card">
+                <span class="f-icon">🌍</span>
+                <h3>مجاني بالكامل</h3>
+                <p>استخدم البريد المؤقت مجاناً تماماً دون أي رسوم أو اشتراكات</p>
+            </div>
+            <div class="f-card">
+                <span class="f-icon">📱</span>
+                <h3>متوافق مع الأجهزة</h3>
+                <p>يعمل على جميع الأجهزة - حاسوب، تابلت، وهاتف محمول</p>
+            </div>
+        </div>
+
+        <div class="ad-space">مساحة إعلانية - AdSense</div>
+
+        <footer>
+            <p>© 2026 بريد مؤقت - جميع الحقوق محفوظة لـ Rayan</p>
+            <p class="footer-note">البريد المؤقت يُحذف تلقائياً بعد فترة قصيرة لحماية خصوصيتك</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
