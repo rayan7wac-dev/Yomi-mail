@@ -1,31 +1,46 @@
 body {
-    background: linear-gradient(135deg, #0f172a, #1e293b);
-    color: white;
+    background: #0f172a; color: white;
     font-family: 'Tajawal', sans-serif;
-    display: flex; justify-content: center;
-    padding-top: 50px; margin: 0; min-height: 100vh;
+    margin: 0; padding: 20px; display: flex; justify-content: center;
 }
-.container { width: 90%; max-width: 500px; text-align: center; }
+.container { width: 100%; max-width: 480px; }
+
+.ad-space {
+    background: #1e293b; color: #64748b; padding: 10px;
+    border: 1px dashed #334155; border-radius: 10px;
+    margin: 15px 0; font-size: 12px; text-align: center;
+}
+
 .main-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 25px; border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    margin-bottom: 20px;
+    background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px);
+    padding: 25px; border-radius: 24px; border: 1px solid #334155;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
-.email-section { display: flex; gap: 10px; margin-bottom: 15px; }
+
+.timer-bar { background: #334155; height: 4px; border-radius: 2px; margin-bottom: 15px; overflow: hidden; }
+#progress { background: #3b82f6; height: 100%; width: 0%; transition: width 0.1s linear; }
+
 input {
-    flex: 1; padding: 12px; border-radius: 10px; border: none;
-    font-size: 16px; text-align: center; background: #f8fafc;
+    width: 100%; padding: 15px; border-radius: 14px; border: 2px solid #3b82f6;
+    background: #0f172a; color: #3b82f6; font-size: 18px; font-weight: bold;
+    text-align: center; margin-bottom: 20px; box-sizing: border-box;
 }
-button {
-    padding: 10px 20px; border-radius: 10px; border: none;
-    cursor: pointer; font-weight: bold; transition: 0.3s;
+
+.grid-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.btn {
+    padding: 12px; border-radius: 12px; border: none; cursor: pointer;
+    font-weight: bold; font-size: 15px; transition: 0.3s;
 }
 .btn-copy { background: #3b82f6; color: white; }
-.btn-change { background: #ef4444; color: white; width: 100%; }
+.btn-next { background: #10b981; color: white; }
+.btn-delete { background: #ef4444; color: white; }
+.btn-refresh { background: #f59e0b; color: white; }
+.btn:active { transform: scale(0.95); }
+
 .inbox {
-    background: white; color: #333; border-radius: 20px;
-    padding: 20px; text-align: right; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    background: #ffffff; color: #1e293b; border-radius: 24px;
+    padding: 20px; margin-top: 20px; min-height: 150px; text-align: center;
 }
-h1 { margin-bottom: 5px; color: #60a5fa; }
+
+footer { margin-top: 30px; font-size: 13px; color: #94a3b8; text-align: center; line-height: 1.6; }
