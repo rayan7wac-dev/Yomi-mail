@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yomi-Mail | بريد مؤقت احترافي</title>
+    <title>بريد مؤقت احترافي - Yomi-Mail</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <div class="ad-space">مساحة إعلان AdMob علوية</div>
+        <div class="ad-space-placeholder">مساحة إعلانية</div>
 
         <header>
-            <h1>🚀 Yomi-Mail</h1>
+            <div class="header-content">
+                <span class="header-icon">✉️</span>
+                <span class="header-title">بريد مؤقت</span>
+            </div>
             <p>أسرع بريد مؤقت من تطوير Rayan</p>
         </header>
 
@@ -22,27 +25,47 @@
                 <input type="text" id="emailAddr" readonly value="جاري التحميل...">
             </div>
             
-            <div class="grid-buttons">
+            <div class="button-row">
                 <button onclick="copyEmail()" class="btn btn-copy">📋 نسخ</button>
-                <button onclick="generateNew()" class="btn btn-next">➡️ التالي</button>
-                <button onclick="deleteEmail()" class="btn btn-delete">🗑️ حذف</button>
-                <button onclick="refreshManual()" class="btn btn-refresh">🔄 تحديث</button>
+                <button onclick="generateNew()" class="btn btn-change">🔄 تغيير</button>
             </div>
         </div>
 
-        <div class="ad-space">مساحة إعلان AdMob وسطية</div>
+        <div class="ad-space-placeholder">مساحة إعلانية</div>
 
         <div class="inbox">
             <h2>📥 الرسائل الواردة</h2>
             <div id="messagesList">بانتظار وصول رسائل جديدة... ✨</div>
         </div>
 
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>آمن وخاص</h3>
+                <p>حماية خصوصيتك بعيداً عن البريد المزعج.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>سريع وفوري</h3>
+                <p>استقبل رسائلك فورياً دون انتظار.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>متوافق</h3>
+                <p>يعمل بامتياز على جميع الهواتف الذكية.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💸</div>
+                <h3>مجاني</h3>
+                <p>استمتع بالخدمة مجاناً بالكامل.</p>
+            </div>
+        </div>
+
         <footer>
-            <p>🛡️ هذا التطبيق آمن 100% ويشتغل بكفاءة على جميع الهواتف الذكية</p>
             <p>Made with ❤️ by Rayan</p>
         </footer>
 
-        <div class="ad-space">مساحة إعلان AdMob سفلية</div>
+        <div class="ad-space-placeholder ad-space-bottom">مساحة إعلانية</div>
     </div>
     <script src="script.js"></script>
 </body>
