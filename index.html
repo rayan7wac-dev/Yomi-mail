@@ -6,19 +6,20 @@
     <title>Yomi-Mail | بريد مؤقت احترافي</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* --- قسم التنسيق (CSS) --- */
         :root {
-            --primary: linear-gradient(135deg, #6366f1, #10b981);
-            --bg: #090919;
-            --card: rgba(30, 41, 59, 0.7);
-            --text: #ffffff;
-            --accent: #22d3ee;
+            --primary-grad: linear-gradient(135deg, #6366f1, #10b981);
+            --bg-dark: #090919;
+            --card-glass: rgba(30, 41, 59, 0.7);
+            --text-main: #ffffff;
+            --accent-cyan: #22d3ee;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             background: radial-gradient(circle at top, #1e293b, #090919);
-            color: var(--text);
+            color: var(--text-main);
             font-family: 'Tajawal', sans-serif;
             display: flex; justify-content: center;
             padding: 20px; min-height: 100vh;
@@ -26,183 +27,175 @@
 
         .container { width: 100%; max-width: 450px; text-align: center; }
 
-        /* مساحات إعلانية فارغة */
-        .ad-slot {
+        /* مساحات الإعلانات */
+        .ad-placeholder {
             background: rgba(255, 255, 255, 0.03);
             border: 1px dashed rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 12px;
+            padding: 15px; margin: 15px 0;
+            color: rgba(255, 255, 255, 0.2); font-size: 11px;
         }
 
-        header { margin-bottom: 20px; }
-        .logo-area { display: flex; align-items: center; justify-content: center; gap: 10px; }
-        header h1 { font-size: 32px; color: #60a5fa; }
+        header { margin-bottom: 25px; }
+        .logo-flex { display: flex; align-items: center; justify-content: center; gap: 12px; }
+        header h1 { font-size: 32px; color: #fff; }
 
-        .glass-card {
-            background: var(--card);
+        /* الكرت الرئيسي */
+        .main-card {
+            background: var(--card-glass);
             backdrop-filter: blur(15px);
             border-radius: 28px;
             padding: 25px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             margin-bottom: 25px;
         }
 
-        .email-box {
-            background: #020617;
-            padding: 18px;
-            border-radius: 18px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(99, 102, 241, 0.3);
+        .email-display {
+            background: #020617; padding: 18px; border-radius: 18px;
+            margin-bottom: 20px; border: 1px solid rgba(99, 102, 241, 0.3);
         }
+
         #emailAddr {
-            background: transparent; border: none; color: var(--accent);
+            background: transparent; border: none; color: var(--accent-cyan);
             width: 100%; text-align: center; font-size: 18px; font-weight: bold; outline: none;
         }
 
-        .main-btn {
-            background: var(--primary);
+        .btn-large {
+            background: var(--primary-grad);
             width: 100%; padding: 16px; border-radius: 16px; border: none;
             color: white; font-weight: bold; font-size: 16px; margin-bottom: 15px;
             cursor: pointer; transition: 0.3s;
         }
 
-        .grid-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .btn {
+        .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+        .u-btn {
             padding: 12px; border-radius: 12px; border: none; color: white;
             font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
         }
-        .copy { background: #3b82f6; }
-        .refresh { background: #10b981; }
-        .change { background: #f59e0b; }
-        .delete { background: #ef4444; }
 
-        .timer-box {
+        .c-blue { background: #3b82f6; }
+        .c-green { background: #10b981; }
+        .c-orange { background: #f59e0b; }
+        .c-red { background: #ef4444; }
+
+        /* العداد التنازلي */
+        .timer-container {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px; padding: 10px; margin-top: 15px;
+            border-radius: 12px; padding: 10px; margin-top: 20px;
             position: relative; overflow: hidden;
         }
-        .progress-bar {
-            position: absolute; top: 0; left: 0; height: 100%; background: rgba(34, 211, 238, 0.2);
+
+        .timer-bar {
+            position: absolute; top: 0; left: 0; height: 100%; background: rgba(34, 211, 238, 0.15);
             width: 0%; transition: width 1s linear;
         }
-        .timer-text { position: relative; z-index: 2; font-size: 12px; color: var(--accent); }
 
-        /* مربعات المميزات (طبق الأصل) */
-        .features-grid { margin-top: 30px; }
-        .feature-card {
-            background: var(--card);
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 15px;
+        .timer-txt { position: relative; z-index: 2; font-size: 12px; color: var(--accent-cyan); }
+
+        /* مربعات المميزات */
+        .features-grid { margin-top: 30px; text-align: right; }
+        .feature-item {
+            background: var(--card-glass); border-radius: 20px;
+            padding: 20px; margin-bottom: 15px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
+            display: flex; align-items: center; gap: 15px;
         }
-        .feature-card .icon { font-size: 30px; margin-bottom: 15px; display: block; }
-        .feature-card h3 { font-size: 18px; margin-bottom: 10px; color: #fff; }
-        .feature-card p { font-size: 13px; color: #94a3b8; line-height: 1.6; }
 
-        footer { margin-top: 40px; color: #475569; font-size: 12px; padding-bottom: 20px; }
+        .f-icon { font-size: 26px; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 12px; }
+        .feature-item h3 { font-size: 17px; margin-bottom: 4px; }
+        .feature-item p { font-size: 13px; color: #94a3b8; }
+
+        footer { margin-top: 40px; color: #475569; font-size: 11px; padding-bottom: 30px; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="ad-slot">مساحة إعلانية - Google AdSense</div>
+        <div class="ad-placeholder">مساحة إعلانية - Google AdSense</div>
 
         <header>
-            <div class="logo-area">
-                <span>✉️</span>
+            <div class="logo-flex">
+                <span>📩</span>
                 <h1>بريد مؤقت</h1>
             </div>
-            <p>أسرع خدمة بريد لحماية خصوصيتك - Rayan</p>
+            <p>بواسطة Rayan Dahbi</p>
         </header>
 
-        <div class="glass-card">
-            <div class="email-box">
+        <div class="main-card">
+            <div class="email-display">
                 <input type="text" id="emailAddr" readonly value="جاري التحميل...">
             </div>
 
-            <button onclick="generateNew()" class="main-btn">✨ إنشاء بريد جديد</button>
+            <button onclick="generateNew()" class="btn-large">✨ إنشاء بريد جديد</button>
 
-            <div class="grid-btns">
-                <button onclick="copyEmail()" class="btn copy">📋 نسخ</button>
-                <button onclick="refreshManual()" class="btn refresh">🔄 تحديث</button>
-                <button onclick="generateNew()" class="btn change">🔀 تغيير</button>
-                <button onclick="deleteEmail()" class="btn delete">🗑️ حذف</button>
+            <div class="btn-grid">
+                <button onclick="copyEmail()" class="u-btn c-blue">📋 نسخ</button>
+                <button onclick="refreshManual()" class="u-btn c-green">🔄 تحديث</button>
+                <button onclick="generateNew()" class="u-btn c-orange">🔀 تغيير</button>
+                <button onclick="deleteEmail()" class="u-btn c-red">🗑️ حذف</button>
             </div>
 
-            <div class="timer-box">
-                <div id="progress" class="progress-bar"></div>
-                <div class="timer-text" id="timerDisplay">تحديث تلقائي بعد 10 ثانية</div>
+            <div class="timer-container">
+                <div id="pBar" class="timer-bar"></div>
+                <div class="timer-txt" id="tTxt">تحديث تلقائي بعد 10 ثوانٍ</div>
             </div>
         </div>
 
-        <div class="ad-slot">مساحة إعلانية - Google AdSense</div>
+        <div class="ad-placeholder">مساحة إعلانية - Google AdSense</div>
 
         <div class="features-grid">
-            <div class="feature-card">
-                <span class="icon">⚡</span>
-                <h3>سريع وفوري</h3>
-                <p>احصل على بريد إلكتروني مؤقت في ثوانٍ معدودة دون تسجيل.</p>
+            <div class="feature-item">
+                <div class="f-icon">⚡</div>
+                <div>
+                    <h3>سريع وفوري</h3>
+                    <p>احصل على بريد إلكتروني مؤقت في ثوانٍ معدودة.</p>
+                </div>
             </div>
 
-            <div class="feature-card">
-                <span class="icon">🔒</span>
-                <h3>آمن وخاص</h3>
-                <p>حماية كاملة لخصوصيتك من الرسائل المزعجة والبريد غير المرغوب.</p>
+            <div class="feature-item">
+                <div class="f-icon">🔒</div>
+                <div>
+                    <h3>آمن وخاص</h3>
+                    <p>نحمي خصوصيتك من الرسائل المزعجة والمخربة.</p>
+                </div>
             </div>
 
-            <div class="feature-card">
-                <span class="icon">🌍</span>
-                <h3>مجاني بالكامل</h3>
-                <p>استخدم البريد المؤقت مجاناً تماماً دون أي رسوم أو اشتراكات.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="icon">📱</span>
-                <h3>متوافق مع الأجهزة</h3>
-                <p>يعمل على جميع الأجهزة - حاسوب، تابلت، وهاتف محمول.</p>
+            <div class="feature-item">
+                <div class="f-icon">🌍</div>
+                <div>
+                    <h3>مجاني بالكامل</h3>
+                    <p>استمتع بكافة مميزات الخدمة مجاناً للأبد.</p>
+                </div>
             </div>
         </div>
 
-        <div class="ad-slot">مساحة إعلانية - Google AdSense</div>
+        <div class="ad-placeholder">مساحة إعلانية - Google AdSense</div>
 
         <footer>
-            <p>© 2026 بريد مؤقت - جميع الحقوق محفوظة</p>
-            <p style="font-size: 10px; margin-top: 5px;">تطوير Rayan Dahbi</p>
+            <p>© 2026 بريد مؤقت | جميع الحقوق محفوظة</p>
         </footer>
     </div>
 
     <script>
-        let user = Math.random().toString(36).substring(2, 10);
-        let domain = "1secmail.com";
+        /* --- قسم البرمجة (JavaScript) --- */
         let timeLeft = 10;
+        let user = Math.random().toString(36).substring(2, 10);
 
-        function updateEmail() {
-            document.getElementById('emailAddr').value = `${user}@${domain}`;
-            resetTimer();
-        }
-
-        function resetTimer() {
+        function updateEmailUI() {
+            document.getElementById('emailAddr').value = `${user}@1secmail.com`;
             timeLeft = 10;
-            updateUI();
-        }
-
-        function updateUI() {
-            document.getElementById('timerDisplay').innerText = `تحديث تلقائي بعد ${timeLeft} ثانية`;
-            document.getElementById('progress').style.width = `${((10 - timeLeft) / 10) * 100}%`;
         }
 
         setInterval(() => {
             if(timeLeft > 0) {
                 timeLeft--;
-                updateUI();
+                document.getElementById('tTxt').innerText = `تحديث تلقائي بعد ${timeLeft} ثوانٍ`;
+                document.getElementById('pBar').style.width = `${((10-timeLeft)/10)*100}%`;
             } else {
-                resetTimer();
+                timeLeft = 10;
+                // هنا يمكن إضافة كود جلب الرسائل
             }
         }, 1000);
 
@@ -210,18 +203,18 @@
             const input = document.getElementById('emailAddr');
             input.select();
             document.execCommand('copy');
-            alert("تم النسخ! ✅");
+            alert("تم نسخ البريد بنجاح! ✅");
         }
 
         function generateNew() {
             user = Math.random().toString(36).substring(2, 10);
-            updateEmail();
+            updateEmailUI();
         }
 
-        function deleteEmail() { if(confirm("حذف؟")) generateNew(); }
-        function refreshManual() { resetTimer(); }
+        function deleteEmail() { if(confirm("هل تريد حذف البريد؟")) generateNew(); }
+        function refreshManual() { timeLeft = 10; alert("تم تحديث الصندوق 🔄"); }
 
-        window.onload = updateEmail;
+        window.onload = updateEmailUI;
     </script>
 </body>
 </html>
