@@ -3,32 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yomi-Mail | بريد مؤقت</title>
+    <title>Yomi-Mail | بريد مؤقت احترافي</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
+        <div class="ad-space">مساحة إعلان AdMob علوية</div>
+
         <header>
-            <h1>📧 Yomi-Mail</h1>
-            <p>بريدك المؤقت من تطوير Rayan</p>
+            <h1>🚀 Yomi-Mail</h1>
+            <p>أسرع بريد مؤقت من تطوير Rayan</p>
         </header>
 
         <div class="main-card">
+            <div class="timer-bar"><div id="progress"></div></div>
             <div class="email-section">
-                <input type="text" id="emailAddr" readonly value="جاري التوليد...">
-                <button onclick="copyEmail()" class="btn-copy">نسخ</button>
+                <input type="text" id="emailAddr" readonly value="جاري التحميل...">
             </div>
             
-            <div class="actions">
-                <button onclick="generateNew()" class="btn-change">تغيير البريد</button>
+            <div class="grid-buttons">
+                <button onclick="copyEmail()" class="btn btn-copy">📋 نسخ</button>
+                <button onclick="generateNew()" class="btn btn-next">➡️ التالي</button>
+                <button onclick="deleteEmail()" class="btn btn-delete">🗑️ حذف</button>
+                <button onclick="refreshManual()" class="btn btn-refresh">🔄 تحديث</button>
             </div>
         </div>
 
+        <div class="ad-space">مساحة إعلان AdMob وسطية</div>
+
         <div class="inbox">
             <h2>📥 الرسائل الواردة</h2>
-            <div id="messagesList">لا توجد رسائل حالياً...</div>
+            <div id="messagesList">بانتظار وصول رسائل جديدة... ✨</div>
         </div>
+
+        <footer>
+            <p>🛡️ هذا التطبيق آمن 100% ويشتغل بكفاءة على جميع الهواتف الذكية</p>
+            <p>Made with ❤️ by Rayan</p>
+        </footer>
+
+        <div class="ad-space">مساحة إعلان AdMob سفلية</div>
     </div>
     <script src="script.js"></script>
 </body>
