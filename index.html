@@ -26,13 +26,21 @@
 
         .container { width: 100%; max-width: 450px; text-align: center; }
 
-        /* الهيدر */
-        header { margin-bottom: 30px; }
-        .logo-area { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 5px; }
-        header h1 { font-size: 32px; color: #60a5fa; }
-        header p { color: #94a3b8; font-size: 14px; }
+        /* مساحات إعلانية فارغة */
+        .ad-slot {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+        }
 
-        /* الكرت الزجاجي */
+        header { margin-bottom: 20px; }
+        .logo-area { display: flex; align-items: center; justify-content: center; gap: 10px; }
+        header h1 { font-size: 32px; color: #60a5fa; }
+
         .glass-card {
             background: var(--card);
             backdrop-filter: blur(15px);
@@ -43,10 +51,6 @@
             margin-bottom: 25px;
         }
 
-        .status-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-size: 13px; color: #94a3b8; }
-        .status-dot { height: 10px; width: 10px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; }
-
-        /* حقل الإيميل */
         .email-box {
             background: #020617;
             padding: 18px;
@@ -59,7 +63,6 @@
             width: 100%; text-align: center; font-size: 18px; font-weight: bold; outline: none;
         }
 
-        /* الأزرار */
         .main-btn {
             background: var(--primary);
             width: 100%; padding: 16px; border-radius: 16px; border: none;
@@ -77,7 +80,6 @@
         .change { background: #f59e0b; }
         .delete { background: #ef4444; }
 
-        /* العداد الاحترافي */
         .timer-box {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px; padding: 10px; margin-top: 15px;
@@ -89,21 +91,28 @@
         }
         .timer-text { position: relative; z-index: 2; font-size: 12px; color: var(--accent); }
 
-        /* صندوق الوارد */
-        .inbox-card {
-            background: var(--card); border-radius: 28px; padding: 25px;
+        /* مربعات المميزات (طبق الأصل) */
+        .features-grid { margin-top: 30px; }
+        .feature-card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 15px;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
         }
-        .inbox-header { display: flex; justify-content: space-between; margin-bottom: 20px; }
-        .empty-state { padding: 40px 0; color: #64748b; }
-        .mailbox-icon { font-size: 45px; display: block; margin-bottom: 10px; }
+        .feature-card .icon { font-size: 30px; margin-bottom: 15px; display: block; }
+        .feature-card h3 { font-size: 18px; margin-bottom: 10px; color: #fff; }
+        .feature-card p { font-size: 13px; color: #94a3b8; line-height: 1.6; }
 
-        footer { margin-top: 40px; color: #475569; font-size: 12px; }
+        footer { margin-top: 40px; color: #475569; font-size: 12px; padding-bottom: 20px; }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <div class="ad-slot">مساحة إعلانية - Google AdSense</div>
+
         <header>
             <div class="logo-area">
                 <span>✉️</span>
@@ -113,11 +122,6 @@
         </header>
 
         <div class="glass-card">
-            <div class="status-bar">
-                <span>نشط الآن</span>
-                <span class="status-dot"></span>
-            </div>
-
             <div class="email-box">
                 <input type="text" id="emailAddr" readonly value="جاري التحميل...">
             </div>
@@ -137,19 +141,39 @@
             </div>
         </div>
 
-        <div class="inbox-card">
-            <div class="inbox-header">
-                <h2>📥 الرسائل الواردة</h2>
-                <span id="count" style="background:#3b82f6; padding:2px 10px; border-radius:10px; font-size:12px;">0 رسائل</span>
+        <div class="ad-slot">مساحة إعلانية - Google AdSense</div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="icon">⚡</span>
+                <h3>سريع وفوري</h3>
+                <p>احصل على بريد إلكتروني مؤقت في ثوانٍ معدودة دون تسجيل.</p>
             </div>
-            <div class="empty-state">
-                <span class="mailbox-icon">📬</span>
-                <p>لا توجد رسائل بعد</p>
+
+            <div class="feature-card">
+                <span class="icon">🔒</span>
+                <h3>آمن وخاص</h3>
+                <p>حماية كاملة لخصوصيتك من الرسائل المزعجة والبريد غير المرغوب.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="icon">🌍</span>
+                <h3>مجاني بالكامل</h3>
+                <p>استخدم البريد المؤقت مجاناً تماماً دون أي رسوم أو اشتراكات.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="icon">📱</span>
+                <h3>متوافق مع الأجهزة</h3>
+                <p>يعمل على جميع الأجهزة - حاسوب، تابلت، وهاتف محمول.</p>
             </div>
         </div>
 
+        <div class="ad-slot">مساحة إعلانية - Google AdSense</div>
+
         <footer>
-            <p>© 2026 بريد مؤقت - تطوير Rayan</p>
+            <p>© 2026 بريد مؤقت - جميع الحقوق محفوظة</p>
+            <p style="font-size: 10px; margin-top: 5px;">تطوير Rayan Dahbi</p>
         </footer>
     </div>
 
@@ -178,7 +202,6 @@
                 timeLeft--;
                 updateUI();
             } else {
-                checkMail();
                 resetTimer();
             }
         }, 1000);
@@ -187,7 +210,7 @@
             const input = document.getElementById('emailAddr');
             input.select();
             document.execCommand('copy');
-            alert("تم النسخ بنجاح! ✅");
+            alert("تم النسخ! ✅");
         }
 
         function generateNew() {
@@ -195,19 +218,8 @@
             updateEmail();
         }
 
-        function deleteEmail() {
-            if(confirm("حذف البريد؟")) generateNew();
-        }
-
-        function refreshManual() {
-            resetTimer();
-            alert("تم تحديث الصندوق 🔄");
-        }
-
-        async function checkMail() {
-            // منطق جلب الرسائل من الـ API
-            console.log("Checking mail...");
-        }
+        function deleteEmail() { if(confirm("حذف؟")) generateNew(); }
+        function refreshManual() { resetTimer(); }
 
         window.onload = updateEmail;
     </script>
